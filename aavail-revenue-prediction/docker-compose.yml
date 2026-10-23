@@ -1,0 +1,12 @@
+services:
+  aavail-api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      AAVAIL_MODEL_PATH: /app/artifacts/revenue_model.joblib
+      AAVAIL_LOG_PATH: /app/logs/api.log
+    volumes:
+      - ./data:/app/data:ro
+      - ./artifacts:/app/artifacts:ro
+      - ./logs:/app/logs
